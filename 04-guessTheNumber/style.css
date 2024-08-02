@@ -1,0 +1,149 @@
+html {
+    font-family: sans-serif;
+  }
+  
+  body {
+    margin: 0 auto;
+    background-color: #fff;
+  }
+
+  nav{
+    text-align: center;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+  }
+  nav a {
+    display: inline-block;
+    min-width: 9rem;
+    padding: 0.5rem;
+    border-radius: 0.2rem;
+    border: solid 1px rgb(71, 70, 70);
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.897);
+}
+
+  nav a[aria-current='page'] {
+    color: #000;
+    background-color: #d4d4d4; 
+  } 
+ 
+
+  nav a:hover{
+    background-color: #1b1b1b; 
+    background-color: #fff;
+    color: #1b1b1b;
+    font-weight: 600;
+  }
+  
+  .lastResult {
+    color: white;
+    padding: 7px;
+  }
+  
+  .guesses {
+    color: white;
+    padding: 7px;
+  }
+  
+  button {
+    background-color: #141414;
+    color: #fff;
+    width: 250px;
+    height: 50px;
+    border-radius: 25px;
+    font-size: 30px;
+    border-style: none;
+    margin-top: 30px;
+    /* margin-left: 50px; */
+  }
+  
+  #subt {
+    background-color: #161616;
+    color: #ffffff;
+    width: 200px;
+    height: 50px;
+    border-radius: 10px;
+    font-size: 20px;
+    border-style: none;
+    margin-top: 25px;
+    /* margin-left: 75px; */
+  }
+  
+  #guessField {
+    color: #000;
+    width: 250px;
+    height: 50px;
+    font-size: 30px;
+    border-style: none;
+    margin-top: 20px;
+  
+    /* margin-left: 50px; */
+    border: 5px solid #6c6d6d;
+    text-align: center;
+  }
+  
+  #guess {
+    font-size: 35px;
+    /* margin-left: 90px; */
+    margin-top: 120px;
+    color: #fff;
+  }
+  
+  .guesses {
+    background-color: #7a7a7a;
+  }
+  
+  #wrapper-2 {
+    box-sizing: border-box;
+    text-align: center;
+    width: 100vw;
+    height: 550px;
+    background-color: #474747;
+    color: #fff;
+    font-size: 25px;
+    margin-top: 25px;
+  }
+  
+  h3 {
+    background-color: #161616;
+    
+  
+    color: #fff;
+    text-align: center;
+  }
+  
+  p {
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .startAgain{
+    background-color: #000;
+    border: 1.5px solid white;
+    width: 200px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    /* margin-top: 40px; */
+    /* display: none; */
+    cursor: pointer;
+    font-weight: 700;
+  }
+  .startAgain:hover{
+    background-color: #fff;
+    color: #000;
+    border: 1.5px solid black;
+  }
+
+  .resultParas{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
