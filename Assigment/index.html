@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" 
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" /> <!--Font Awesome Libraries tag-->
+    <link rel="stylesheet" type="text/css" href="../style.css" />
+
+    <title>GitHub API Data Fetch Assignment</title>
+    <style>
+        section{
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .main{
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 5px;
+            height: 230px;
+            width: 210px;
+            border: 1px solid rgb(165, 156, 138);
+        }
+
+        button{
+            background-color: #5C636A;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 5px;
+
+        }
+        .img-cont{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            padding-top: 3px;
+        }
+        img:hover{
+            height: 102px;
+        }
+        .content{
+            padding: 10px 10px 0px;
+        }
+        .follower{
+            padding-top: 5px;
+        }
+        a{
+            color: white;
+            text-decoration: none;
+        }
+        .refresh{
+            margin-top: 5px;
+        }
+        .fa-brands{
+            font-size: 20px;
+        }
+        
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="../index.html" aria-current="page">Home</a>
+      </nav>
+
+    <section>
+        <div class="head">
+            <h2>GitHub API Data Fetch Assignment</h2>
+            <p>Displays GitHub user details like profile picture, bio, and number of followers by making an API request.</p>
+
+        </div>
+        <button class="button">Click Me!</button>
+    <div class="main">
+        <div class="img-cont">
+            <img class="img" src="" alt="profile" height="100px">
+            
+        </div>
+        <div class="content">
+            <div class="bio"></div>
+        <div class="follower"><b>Followers:</b>
+            <span class="follow"></span>
+        </div>
+        </div>
+        
+    </div>
+
+    <button class="refresh"><a href="index.html" style="text-decoration: none;">Refresh</a></button>
+
+    <button class="git"><a class="github" href="https://github.com/abusufyan-03">Now Follow me On Github <i class="fa-brands fa-github"></i></a></button>
+    </section>
+    
+</body>
+
+<script>
+    const main = document.querySelector('.main');
+    const clickMe = document.querySelector('button');
+    const refresh = document.querySelector('.refresh');
+    const img = document.querySelector('img');
+    const followers = document.querySelector('.follow');
+    const bio = document.querySelector('.bio');
+
+    const git = document.querySelector('.git')
+
+    main.style.display = 'none'
+    refresh.style.display = 'none'
+    git.style.display = 'none'
+
+
+    let imgUrl;
+    let follow;
+    let biog;
+    let requestUrl = 'https://api.github.com/users/abusufyan-03';
+
+    clickMe.addEventListener('click', function(){
+
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', requestUrl)
+        xhr.onreadystatechange = function(){
+            if(xhr.readyState == 4){
+                let data = JSON.parse(this.responseText);
+                imgUrl = data.avatar_url;
+                biog = data.bio;
+                follow = data.followers;
+            }
+            img.setAttribute('src', imgUrl);
+            bio.innerHTML = `${biog}`;
+            followers.innerHTML = `${follow}`
+        }
+        
+
+        main.style.display = 'block';
+        clickMe.style.display = 'none';
+        refresh.style.display = 'block';
+        git.style.display = 'block';
+        xhr.send();
+    })
+
+
+
+
+
+</script>
+
+</html>
